@@ -45,6 +45,8 @@ function addBookCard(newBook) {
   const author = document.createElement('div');
   const pages = document.createElement('div');
   const completed = document.createElement('div');
+  const removeButton = document.createElement('button');
+  const toggleRead = document.createElement('button');
 
   title.textContent = library.append(bookCard);
   bookCard.classList.add('bookCard');
@@ -61,6 +63,7 @@ function addBookCard(newBook) {
   pages.textContent = newBook.pages;
   pages.classList.add('pages');
   bookCard.append(pages);
+
   if (newBook.completed) {
     completed.textContent = 'read';
   } else {
@@ -68,6 +71,7 @@ function addBookCard(newBook) {
   }
   completed.classList.add('completed');
   bookCard.append(completed);
+
 }
 
 const greatGatsby = new Book(
