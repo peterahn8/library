@@ -18,7 +18,7 @@ function Book(title, author, pages, completed, info) {
   };
 }
 
-function addBookToLibrary() {
+function addBookToMyLibrary() {
   const formData = new FormData(form);
   
   let completed;
@@ -94,5 +94,5 @@ window.onclick = function (event) {
 
 form.addEventListener('submit', function (event) {
   event.preventDefault();
-  addBookToLibrary();
+  addBookToMyLibrary();
 });
