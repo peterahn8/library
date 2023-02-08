@@ -1,3 +1,8 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
@@ -32,4 +37,26 @@
   color: #000;
   text-decoration: none;
   cursor: pointer;
+}
+
+.bookCard {
+  background-color: rgb(136, 136, 136);
+  width: 200px;
+  height: 200px;
+}
+
+.title {
+
+}
+
+.author {
+
+}
+
+.pages {
+
+}
+
+.completed {
+  
 }
