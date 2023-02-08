@@ -1,4 +1,4 @@
-let myLibrary = ["asd", "fgh", "jkl"];
+const myLibrary = [];
 
 function Book(title, author, pages, completed, info) {
   this.title = title;
@@ -17,25 +17,24 @@ function addBookToLibrary() {
     myLibrary[myLibrary.length - 1];
 }
 
-document.querySelector("#addButton").addEventListener("click", function () {
-  createBook();
-});
+const bookModal = document.getElementById("bookModal");
+const addButton = document.getElementById("addButton");
+const submitButton = document.getElementById("submitButton");
+const form = document.getElementById("form");
+const span = document.getElementsByClassName("close")[0];
+const completion = document.getElementById("read");
+const title = document.getElementById("title");
 
-const createBook = (book) => {
-  // const container = document.querySelector('#container');
-  // const createBook = document.createElement('div');
-  // const title = document.createElement('input');
-  // const author = document.createElement('input');
-  // const pages = document.createElement('input')
-  // createBook.classList.add('active');
-  // container.classList.add('inactive');
-  // createBook.setAttribute('id', 'createBook');
-  // pages.setAttribute('type', 'number');
-  // document.body.appendChild(createBook)
-  // createBook.appendChild(title);
-  // createBook.appendChild(author);
-  // createBook.appendChild(pages);
-  // document.querySelector("#createDiv").classList.add('active');
+addButton.onclick = function () {
+  bookModal.style.display = "block";
 };
 
-// const greatGatsby = new Book('Great Gatsby', 'F. Scott Fitzgerald', 208, true, 'info goes here');
+span.onclick = function () {
+  bookModal.style.display = "none";
+};
+
+window.onclick = function (event) {
+  if (event.target == bookModal) {
+    bookModal.style.display = "none";
+  }
+};
