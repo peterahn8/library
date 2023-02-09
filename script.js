@@ -1,11 +1,8 @@
 const bookModal = document.getElementById('bookModal');
 const addButton = document.getElementById('addButton');
-const submitButton = document.getElementById('submitButton');
 const form = document.getElementById('form');
 const span = document.getElementsByClassName('close')[0];
-
 const library = document.getElementById('library');
-
 const myLibrary = [];
 
 function Book(title, author, pages, completed, info) {
@@ -20,7 +17,7 @@ function Book(title, author, pages, completed, info) {
 
 function addBookToMyLibrary() {
   const formData = new FormData(form);
-  
+
   let completed;
   if (formData.get('completed') === 'read') {
     completed = true;
@@ -47,10 +44,11 @@ function addBookCard(newBook) {
   const completed = document.createElement('div');
   const removeButton = document.createElement('button');
   const toggleRead = document.createElement('button');
+  const idIndex = myLibrary.indexOf(newBook);
 
   title.textContent = library.append(bookCard);
   bookCard.classList.add('bookCard');
-  bookCard.setAttribute('id', myLibrary.indexOf(newBook));
+  bookCard.setAttribute('id', idIndex);
 
   title.textContent = newBook.title;
   title.classList.add('title');
@@ -67,20 +65,38 @@ function addBookCard(newBook) {
   if (newBook.completed) {
     completed.textContent = 'read';
   } else {
-    completed.textContent = 'unread'
+    completed.textContent = 'unread';
   }
   completed.classList.add('completed');
   bookCard.append(completed);
 
+  removeButton.textContent = 'Remove book';
+  bookCard.append(removeButton);
+  removeButton.addEventListener('click', function () {
+    bookCard.remove();
+    updateLibraryArray(idIndex);
+  });
+
+  toggleRead.textContent = 'Toggle read';
+  bookCard.append(toggleRead);
+  toggleRead.addEventListener('click', function () {
+    if (completed.textContent === 'read') {
+      completed.textContent = 'unread';
+      myLibrary[idIndex].completed = false;
+    } else {
+      completed.textContent = 'read';
+      myLibrary[idIndex].completed = true;
+    }
+  });
 }
 
-const greatGatsby = new Book(
-  'Great Gatsby',
-  'F. Scott Fitzgerald',
-  '208',
-  true,
-  'Book about wealth and depression.'
-);
+function updateLibraryArray(idIndex) {
+  myLibrary.splice(idIndex, 1);
+  const bookCardIterator = document.querySelectorAll('.bookCard');
+  for (let i = 0; i < bookCardIterator.length; i++) {
+    bookCardIterator[i].setAttribute('id', i);
+  }
+}
 
 addButton.onclick = function () {
   bookModal.style.display = 'block';
