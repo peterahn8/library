@@ -64,8 +64,10 @@ function addBookCard(newBook) {
 
   if (newBook.completed) {
     completed.textContent = 'read';
+    completed.classList.add('read');
   } else {
     completed.textContent = 'unread';
+    completed.classList.add('unread');
   }
   completed.classList.add('completed');
   bookCard.append(completed);
