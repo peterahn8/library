@@ -46,7 +46,7 @@ function addBookCard(newBook) {
   const toggleRead = document.createElement('button');
   const idIndex = myLibrary.indexOf(newBook);
 
-  title.textContent = library.append(bookCard);
+  library.append(bookCard);
   bookCard.classList.add('bookCard');
   bookCard.setAttribute('id', idIndex);
 
