@@ -245,10 +245,6 @@ body {
   cursor: pointer;
 }
 
-.bookCard {
-  background-color: rgb(136, 136, 136);
-}
-
 .title {
 }
 
@@ -262,9 +258,9 @@ body {
 }
 
 .read {
-  background-color: green;
+  background-color: rgb(28, 149, 28);
 }
 
 .unread {
-  background-color: #64748b;
+  background-color: var(--500);
 }
