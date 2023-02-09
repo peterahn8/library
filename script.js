@@ -50,24 +50,24 @@ function addBookCard(newBook) {
   bookCard.classList.add('bookCard');
   bookCard.setAttribute('id', idIndex);
 
-  title.textContent = newBook.title;
+  title.textContent = 'Title: ' + newBook.title;
   title.classList.add('title');
   bookCard.append(title);
 
-  author.textContent = newBook.author;
+  author.textContent = 'Author: ' + newBook.author;
   author.classList.add('author');
   bookCard.append(author);
 
-  pages.textContent = newBook.pages;
+  pages.textContent = 'Page Count: ' + newBook.pages;
   pages.classList.add('pages');
   bookCard.append(pages);
 
   if (newBook.completed) {
     completed.textContent = 'read';
-    completed.classList.add('read');
+    bookCard.classList.add('read');
   } else {
     completed.textContent = 'unread';
-    completed.classList.add('unread');
+    bookCard.classList.add('unread');
   }
   completed.classList.add('completed');
   bookCard.append(completed);
@@ -84,9 +84,13 @@ function addBookCard(newBook) {
   toggleRead.addEventListener('click', function () {
     if (completed.textContent === 'read') {
       completed.textContent = 'unread';
+      bookCard.classList.toggle('unread')
+      bookCard.classList.toggle('read')
       myLibrary[idIndex].completed = false;
     } else {
       completed.textContent = 'read';
+      bookCard.classList.toggle('read')
+      bookCard.classList.toggle('unread')
       myLibrary[idIndex].completed = true;
     }
   });
