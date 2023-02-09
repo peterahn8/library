@@ -46,7 +46,7 @@ function addBookCard(newBook) {
   const toggleRead = document.createElement('button');
   const idIndex = myLibrary.indexOf(newBook);
 
-  library.append(bookCard);
+  library.insertBefore(bookCard, addButton);
   bookCard.classList.add('bookCard');
   bookCard.setAttribute('id', idIndex);
 
@@ -76,7 +76,7 @@ function addBookCard(newBook) {
   bookCard.append(removeButton);
   removeButton.addEventListener('click', function () {
     bookCard.remove();
-    updateLibraryArray(idIndex);
+    updateLibraryArray(idIndex, newBook);
   });
 
   toggleRead.textContent = 'Toggle read';
@@ -84,19 +84,20 @@ function addBookCard(newBook) {
   toggleRead.addEventListener('click', function () {
     if (completed.textContent === 'read') {
       completed.textContent = 'unread';
-      bookCard.classList.toggle('unread')
-      bookCard.classList.toggle('read')
+      bookCard.classList.toggle('unread');
+      bookCard.classList.toggle('read');
       myLibrary[idIndex].completed = false;
     } else {
       completed.textContent = 'read';
-      bookCard.classList.toggle('read')
-      bookCard.classList.toggle('unread')
+      bookCard.classList.toggle('read');
+      bookCard.classList.toggle('unread');
       myLibrary[idIndex].completed = true;
     }
   });
 }
 
-function updateLibraryArray(idIndex) {
+function updateLibraryArray(idIndex, newBook) {
+  idIndex = myLibrary.indexOf(newBook);
   myLibrary.splice(idIndex, 1);
   const bookCardIterator = document.querySelectorAll('.bookCard');
   for (let i = 0; i < bookCardIterator.length; i++) {

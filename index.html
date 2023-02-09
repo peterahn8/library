@@ -6,53 +6,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Library</title>
     <link rel="stylesheet" href="styles.css" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <script src="script.js" defer></script>
   </head>
   <body>
-      <div id="library">
-        <button id="addButton">Add a book</button>
+    <div id="library">
+      <button id="addButton" class="material-symbols-outlined">add</button>
+    </div>
+
+    <div id="bookModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <form id="form" action="" name="form">
+          <label for="title">
+            Title
+            <input id="title" type="text" value="" name="title" required />
+          </label>
+          <label for="author">
+            Author
+            <input id="author" type="text" value="" name="author" required />
+          </label>
+          <label for="pages">
+            Pages
+            <input id="pages" type="number" value="" name="pages" required />
+          </label>
+          <label for="read">
+            <input
+              id="read"
+              type="radio"
+              value="read"
+              name="completed"
+              required
+            />
+            I've finished this book.
+          </label>
+          <label for="unread">
+            <input
+              id="unread"
+              type="radio"
+              value="unread"
+              name="completed"
+              required
+            />
+            I haven't finished this book yet.
+          </label>
+          <button id="submitButton">Add to library</button>
+        </form>
       </div>
-      
-      <div id="bookModal" class="modal">
-        <div class="modal-content">
-          <span class="close">&times;</span>
-          <form id="form" action="" name="form">
-            <label for="title">
-              Title
-              <input id="title" type="text" value="" name="title" required />
-            </label>
-            <label for="author">
-              Author
-              <input id="author" type="text" value="" name="author" required />
-            </label>
-            <label for="pages">
-              Pages
-              <input id="pages" type="number" value="" name="pages" required />
-            </label>
-            <label for="read">
-              <input
-                id="read"
-                type="radio"
-                value="read"
-                name="completed"
-                required
-              />
-              I've finished this book.
-            </label>
-            <label for="unread">
-              <input
-                id="unread"
-                type="radio"
-                value="unread"
-                name="completed"
-                required
-              />
-              I haven't finished this book yet.
-            </label>
-            <button id="submitButton">Add to library</button>
-          </form>
-        </div>
-      </div>
+    </div>
   </body>
 </html>
