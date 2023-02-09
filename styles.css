@@ -138,6 +138,36 @@ table {
   --900: #0f172a;
 }
 
+/* Rules for sizing the icon. */
+.material-icons.md-18 {
+  font-size: 18px;
+}
+.material-icons.md-24 {
+  font-size: 24px;
+}
+.material-icons.md-36 {
+  font-size: 36px;
+}
+.material-icons.md-48 {
+  font-size: 48px;
+}
+
+/* Rules for using icons as black on a light background. */
+.material-icons.md-dark {
+  color: rgba(0, 0, 0, 0.54);
+}
+.material-icons.md-dark.md-inactive {
+  color: rgba(0, 0, 0, 0.26);
+}
+
+/* Rules for using icons as white on a dark background. */
+.material-icons.md-light {
+  color: rgba(255, 255, 255, 1);
+}
+.material-icons.md-light.md-inactive {
+  color: rgba(255, 255, 255, 0.3);
+}
+
 @font-face {
   font-family: Roboto;
   src: url(fonts/Roboto-Regular.ttf);
@@ -151,15 +181,24 @@ body {
   background-color: var(--700);
 }
 
-#addButton {
-  font-size: larger;
-}
-
 #library {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   margin: 2rem;
   gap: 2rem;
+}
+
+#addButton {
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: black;
+  transition: 0.3s;
+}
+
+#addButton:hover {
+  background-color: var(--400);
+  color: rgb(0, 0, 0);
 }
 
 .bookCard {
